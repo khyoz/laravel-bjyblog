@@ -10,26 +10,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @yield('css')
-    
-
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://matomo.khyoz.work/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '7']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="https://matomo.khyoz.work/matomo.php?idsite=7&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Matomo Code -->
-
-
 </head>
 <body>
 <header id="b-public-nav" class="navbar navbar-inverse navbar-fixed-top">
@@ -190,8 +170,8 @@
         <div class="row b-content">
             <dl class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <dt>{{ __('Rights') }}</dt>
-               <!--  <dd>{{ __("Licenses") }}：<a rel="nofollow" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh">CC BY-NC 4.0</a></dd> -->
-                <dd>{{ __('Copyright') }}：© {{ date('Y') }} {{ parse_url(config('app.url'))['host'] }}</dd>
+                <dd>{{ __("Licenses") }}：<a rel="nofollow" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh">CC BY-NC 4.0</a></dd>
+                <dd>{{ __('Copyright') }}：© 2014-{{ date('Y') }} {{ parse_url(config('app.url'))['host'] }}</dd>
                 @if(!empty(config('bjyblog.admin_email')))
                     <dd>{{ __('Contact Email') }}：<a href="mailto:{!! config('bjyblog.admin_email') !!}">{!! config('bjyblog.admin_email') !!}</a></dd>
                 @endif
@@ -199,22 +179,22 @@
                     <dd>{{ __('ICP') }}：{{ config('bjyblog.icp') }}</dd>
                 @endif
             </dl>
-            
-            <!-- <dl class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+
+            <dl class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <dt>{{ __('Structure') }}</dt>
                 <dd>{{ __('Project Name') }}：<a rel="nofollow" href="https://github.com/baijunyao/laravel-bjyblog" target="_blank">laravel-bjyblog</a></dd>
                 <dd>{{ __('Branch') }}：{{ config('bjyblog.version') }}-{{ config('bjyblog.branch') }}</dd>
                 <dd>{{ __('Project Author') }}：<a href="https://baijunyao.com">{{ __('Junyao Bai') }}</a></dd>
                 <dd>{{ __('Theme Name') }}：<a rel="nofollow" href="https://github.com/baijunyao/blog-theme-blueberry">blog-theme-blueberry</a></dd>
                 <dd>{{ __('Theme Author') }}：<a href="https://baijunyao.com">{{ __('Junyao Bai') }}</a></dd>
-            </dl> -->
+            </dl>
 
             <dl class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <dt>{{ __('Counts') }}</dt>
                 <dd>{{ __('Article Counts') }}：{{ $articleCount }}</dd>
                 <dd>{{ __('Comment Counts') }}：{{ $commentCount }}</dd>
-                <!-- <dd>{{ __('User Counts') }}：{{ $oauthUserCount }}</dd> -->
-                <!-- <dd>{{ __('Chat Counts') }}：{{ $chatCount }}</dd> -->
+                <dd>{{ __('User Counts') }}：{{ $oauthUserCount }}</dd>
+                <dd>{{ __('Chat Counts') }}：{{ $chatCount }}</dd>
             </dl>
         </div>
     </div>

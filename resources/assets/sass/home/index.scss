@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:400,700&display=swap);@charset "UTF-8";
+
 @charset "utf-8";
 /* CSS Document */
 
@@ -61,7 +63,8 @@ textarea {
 
 body {
     background: #F8F8F8;
-    font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    font-family: 'Comfortaa', cursive;
 }
 
 a {
@@ -283,7 +286,8 @@ a {
                     height: 20px;
                     line-height: 20px;
                     border-radius: 10px;
-                    font-family: SimSun;
+                    /* font-family: SimSun; */
+                    font-family: 'Comfortaa', cursive;
                     color: #fff;
 
                     &:hover {

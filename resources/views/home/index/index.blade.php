@@ -60,7 +60,7 @@
                                 </figcaption>
                             </figure>
                             @if(1 == $v->is_top)
-                                <img class="b-top-icon" src="{{ asset('images/home/top.png') }}" alt="top">
+                                <img class="b-top-icon" src="{{ asset('images/home/top-fr.png') }}" alt="top">
                             @endif
                         </div>
                         <!-- 文章封面图片结束 -->
