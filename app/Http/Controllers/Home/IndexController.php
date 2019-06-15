@@ -116,7 +116,7 @@ class IndexController extends Controller
         $seo->og_description = $data->description;
 
         $seo->robots = "index,follow";
-        $seo->author = "IchimokuAcademy.net";
+        $seo->author = "@KhaliBOUZIDI";
         // dd($seo);
 
         $category_id = $data->category->id;

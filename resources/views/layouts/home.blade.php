@@ -29,12 +29,13 @@
         <meta property="og:image:alt" content="{{ $seo->og_image_alt }}">
         <meta property="og:site_name" content="{{ $seo->og_site_name }}">
 
-        <meta name=”twitter:card” content="summary">
-        <meta name=”twitter:site” content=”ichimokuacademy.net”>
-        <meta name=”twitter:creator” content=”@ichiologue”>
-        <meta name=”twitter:title” content=”{{ $seo->og_title }}”>
-        <meta name=”twitter:description” content=”{{ $seo->og_description }}”>
-        <meta name=”twitter:image” content=”{{ $seo->og_image }}“>
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@ichiologue">
+        <meta name="twitter:creator" content="{{ $seo->author }}">
+        <meta name="twitter:title" content="{{ $seo->og_title }}">
+        <meta name="twitter:description” content="{{ $seo->og_description }}">
+        <meta name="twitter:image" content="{{ $seo->og_image }}">
+        <meta name="twitter:image:alt” content=”{{ $seo->og_image_alt }}">
         
     @endif
 
