@@ -10,7 +10,33 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @yield('css')
-    
+    @if (isset($seo))
+            
+        <meta name="description" content="{{ $seo->description }}">
+        <meta name="keywords" content="{{ $seo->keywords }}">
+        <meta name="author" content="{{ $seo->author }}">
+        <link rel="canonical" href="{{ $seo->canonical }}"/>
+
+        <meta name="title" content="{{ $seo->og_title }}">
+        <meta name="keywords" content="{{ $seo->keywords }}">
+
+        <meta name="og:title" content="{{ $seo->og_title }}">
+        <meta name="og:type" content="{{ $seo->og_type }}">
+        <meta name="og:description" content="{{ $seo->og_description }}">
+        <meta name="og:locale" content="{{ $seo->og_locale }}">
+        <meta property="og:url" content="{{ $seo->og_url }}">
+        <meta property="og:image" content="{{ $seo->og_image }}">
+        <meta property="og:image:alt" content="{{ $seo->og_image_alt }}">
+        <meta property="og:site_name" content="{{ $seo->og_site_name }}">
+
+        <meta name=”twitter:card” content="summary">
+        <meta name=”twitter:site” content=”ichimokuacademy.net”>
+        <meta name=”twitter:creator” content=”@ichiologue”>
+        <meta name=”twitter:title” content=”{{ $seo->og_title }}”>
+        <meta name=”twitter:description” content=”{{ $seo->og_description }}”>
+        <meta name=”twitter:image” content=”{{ $seo->og_image }}“>
+        
+    @endif
 
 <!-- Matomo -->
 <script type="text/javascript">

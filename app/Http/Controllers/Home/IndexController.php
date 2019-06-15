@@ -14,6 +14,7 @@ use App\Models\OauthUser;
 use App\Models\Tag;
 use Cache;
 use Illuminate\Http\Request;
+use Spatie\SchemaOrg\Schema;
 
 class IndexController extends Controller
 {
@@ -93,8 +94,34 @@ class IndexController extends Controller
         // 获取评论
         $comment = $commentModel->getDataByArticleId($id);
         // p($comment);die;
+        $seo = new \stdClass();
+        $seo->title = $data->title;
+        $seo->description = $data->description;
+        $seo->keywords = 'Ichimoku kinkohyo';
+        $seo->created_at = $data->created_at;
+        $seo->canonical = 'https://ichimokuacademy.net';
+        $seo->canonical = 'https://ichimokuacademy.net';
+
+        $seo->og_description = $data->description;
+        $seo->og_site_name = "ichimokuacademy.net";
+        $seo->og_title = $data->title;
+        // $seo->og_image = "https://launch.ichimokuacademy.net".$data->cover;
+        $seo->og_image =  url($data->cover);
+
+        $seo->og_image_alt = "Khali El Bouzidi";
+        $seo->og_url = "https://launch.ichimokuacademy.net";
+        $seo->og_locale = "fr_FR";
+        $seo->og_type = "article";
+        // {{ url('article', [$v->id]) }}
+        $seo->og_description = $data->description;
+
+        $seo->robots = "index,follow";
+        $seo->author = "IchimokuAcademy.net";
+        // dd($seo);
+
         $category_id = $data->category->id;
-        $assign      = compact('category_id', 'data', 'prev', 'next', 'comment');
+        $assign      = compact('category_id', 'data', 'prev', 'next', 'comment', 'seo');
+        // $assign      = compact('category_id', 'data', 'prev', 'next', 'comment');
 
         return view('home.index.article', $assign);
     }
