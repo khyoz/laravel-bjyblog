@@ -38833,7 +38833,7 @@ $(function () {
             if (data.status === 1) {
                 $('#b-modal-site').modal('show');
             } else {
-                layer.msg('请先登录', {
+                layer.msg(pleaseLogInFirst, {
                     icon: 5,
                     time: 2000
                 });
@@ -38854,7 +38854,7 @@ $(function () {
             success: function success(data, status) {
                 // 关闭loading
                 layer.closeAll();
-                layer.msg('提交成功，等待审核。', {
+                layer.msg(submittedSuccessfullyWaitingForApprove, {
                     icon: 1,
                     time: 2000
                 });
