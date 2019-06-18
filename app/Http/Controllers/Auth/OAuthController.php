@@ -105,8 +105,8 @@ class OAuthController extends Controller
                 'last_login_ip'            => $request->getClientIp(),
                 'login_times'              => 1,
                 'is_admin'                 => 0,
-                // 'email'                    => '',
-                'email'                    => $request->getEmail(),
+                'email'                    => '',
+                // 'email'                    => $request->getEmail(),
             ])->id;
 
             // 更新头像
