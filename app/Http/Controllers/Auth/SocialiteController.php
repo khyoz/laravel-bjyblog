@@ -24,7 +24,7 @@ class SocialiteController extends Controller
     public function __construct(Request $request)
     {
         $this->socialiteClients = cache('socialiteClients');
-        $service            = $request->route('service');
+        $service                = $request->route('service');
 
         // 因为发现有恶意访问回调地址的情况 此处限制允许使用的第三方登录方式
         if (!empty($service) && !$this->socialiteClients->pluck('name')->contains($service)) {
@@ -54,7 +54,7 @@ class SocialiteController extends Controller
     /**
      * 获取用户资料并登录
      *
-     * @param Request   $request
+     * @param Request       $request
      * @param SocialiteUser $socialiteUserModel
      * @param $service
      *
@@ -73,7 +73,7 @@ class SocialiteController extends Controller
         // 查找此用户是否已经登录过
         $countMap = [
             'socialite_client_id'   => $type[$service],
-            'openid'            => $user->id,
+            'openid'                => $user->id,
         ];
         $oldUserData = $socialiteUserModel->select('id', 'login_times', 'is_admin', 'email')
             ->where($countMap)
@@ -107,6 +107,7 @@ class SocialiteController extends Controller
                 'is_admin'                 => 0,
                 'email'                    => '',
                 // 'email'                    => $request->getEmail(),
+
             ])->id;
 
             // 更新头像

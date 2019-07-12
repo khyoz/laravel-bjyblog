@@ -8,8 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Comment\Store;
 use App\Models\Article;
 use App\Models\Category;
-use App\Models\Chat;
 use App\Models\Comment;
+use App\Models\Note;
 use App\Models\SocialiteUser;
 use App\Models\Tag;
 use Cache;
@@ -217,16 +217,16 @@ class IndexController extends Controller
      *
      * @return mixed
      */
-    public function chat()
+    public function note()
     {
-        $chat   = Chat::orderBy('created_at', 'desc')->get();
-        $assign = [
-            'category_id' => 'chat',
-            'chat'        => $chat,
-            'title'       => '随言碎语',
+        $notes   = Note::orderBy('created_at', 'desc')->get();
+        $assign  = [
+            'category_id'  => 'note',
+            'notes'        => $notes,
+            'title'        => '随言碎语',
         ];
 
-        return view('home.index.chat', $assign);
+        return view('home.index.note', $assign);
     }
 
     /**
@@ -247,8 +247,8 @@ class IndexController extends Controller
     /**
      * 文章评论
      *
-     * @param Store     $request
-     * @param Comment   $commentModel
+     * @param Store         $request
+     * @param Comment       $commentModel
      * @param SocialiteUser $socialiteUserModel
      *
      * @return \Illuminate\Http\JsonResponse
@@ -270,8 +270,8 @@ class IndexController extends Controller
         // 存储评论
         $id = Comment::create($request->only('article_id', 'content', 'pid') + [
             'socialite_user_id' => $userId,
-            'type'          => 1,
-            'status'        => 1,
+            'type'              => 1,
+            'status'            => 1,
         ]);
 
         if (!$id) {

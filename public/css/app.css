@@ -16380,6 +16380,11 @@ a {
   border: 1px solid #ddd;
 }
 
+#b-content .b-article .b-content-word .js-content .emoji {
+  width: 24px;
+  height: 24px;
+}
+
 #b-content .b-comment {
   margin-top: 10px;
   padding-bottom: 210px;
@@ -16963,3 +16968,4 @@ a {
   background: #0B94C1;
   pointer-events: none;
 }
+
